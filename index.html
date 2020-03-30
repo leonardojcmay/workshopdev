@@ -1,0 +1,112 @@
+<!--Estrutura para o HTML5-->
+<!DOCTYPE html>
+
+<!--Tag HTML-->
+<html>
+
+    <!--Cabeçalho: responsável por receber configurações da página-->
+    <head>
+        <!--Serve para ajustar a descrição das palavra que contém acentos-->
+        <meta charset="UTF-8">
+        
+        <!--Titulo da página-->
+        <title>Casa Criativa</title>
+
+        <!--Tag de estilização: CSS-->
+        <style>
+        
+            body {
+                /*propriedade: valor;*/
+                
+                /*Fundo da página*/
+                /*background: rgb(185, 173, 173);*/
+                background: #e5e5e5;
+
+                /*Mudar as cores do texto*/
+                color: #25282B;
+
+                /*Alinhamento do texto*/
+                text-align: center;
+            }
+
+            button {
+                color: #ff5E84;
+
+                border: none;
+
+                font-weight: bold;
+                background: none;
+            }
+
+            /*Acessando as classes: pode repetir quantas vezes precisar*/
+            button.fat {
+                color: white;
+                background: #ff5E84;
+            }
+
+            /*Acessando o id: pode utilizar somente uma vez*/
+            #footer a {
+                color: #25282B;
+                text-decoration: none;
+            }
+
+            .hide {
+                display: none;
+            }
+
+        </style>
+    </head>
+
+    <!--Corpo da página, onde coloca-se os textos, informações, imagens-->
+    <body>
+        
+        <!--Tag para exportar imagens-->
+        <img src="logo.png" alt="Imagem da Logomarca">
+
+        <!--Tag de paragrago-->
+        <p>
+            Ficar em casa em períodos longos, não deve ser nada fácil.
+        </p>
+
+        <p>
+            <!--strong: serve para colocar as palavras em negrito-->
+            Iremos catalogar ideias, <strong>brincadeiras, jogos, filmes, 
+            livros, cursos, dicas</strong> e tudo que for necessário para tornar 
+            esse momento mais interessante.
+        </p>
+
+        <p>
+            Comece clicando em ver ideias para ver as 
+            ideias cadastradas e contribua adicioando a sua ideia.
+        </p>
+        
+        <!--Adicionando botões-->
+        <button> + Adicionar Ideia </button>
+        <button class="fat"> Ver Ideias </button>
+
+        <p id="footer">
+            <a href="http://rocketseat.com.br">
+                Rocketseat
+            </a>
+        </p>
+
+        <!--JavaScript-->
+        <script>
+        
+            /*Acessando button*/
+            document
+                //Procure o botão .fat
+                .querySelector("button.fat")
+                //Adicionando ouvidor de eventos, nesse caso seria 'click'
+                .addEventListener("click", function(){
+                    document
+                        .querySelector("#footer")
+                        .classList
+                        .toggle("hide")//Colocar e tirar
+                })
+
+        </script>
+
+    </body>
+
+</html>
