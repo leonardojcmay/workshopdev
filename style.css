@@ -1,0 +1,296 @@
+/*Tag de estilização: CSS*/
+/*BOX/caixa: dentro das box contém box, textos, imagens*/
+/*
+BOX
+    largura
+    conteudo da caixa
+
+    Espaçamentos
+    Bordas
+    Preenchimento
+
+    Posicionamento
+*/
+
+body {
+    /*propriedade: valor;*/
+    
+    /*Fundo da página*/
+    /*background: rgb(185, 173, 173);*/
+    background: #e5e5e5;
+
+    /*Mudar as cores do texto*/
+    color: #25282B;
+
+    /*Alinhamento do texto*/
+    /*text-align: center;*/
+
+    margin: 0;
+
+    /*Fonte da letra*/
+    font-family: 'Montserrat', sans-serif;
+}
+
+a {
+    color: #ff5E84;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+p, .description {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.1px;
+}
+
+/*Ajustando caixas da página*/
+#container {
+    /*Não deixando que o conteudo encoste nas laterais da página*/
+    width: 80%;
+    max-width: 980px;
+    
+    /*Fazendo o conteúdo ficar posicionado no meio da página*/
+    /*Margem em cima/baixo / Margem direita/esquerda*/
+    margin: 40px auto;
+
+    /*Separando as duas caixas filhas do container*/
+    display: flex;
+}
+
+#intro {
+    width: 300px;
+    margin-right: 20px;
+}
+
+main {
+    /*Margem em cima/baixo / Margem direita/esquerda*/
+    margin: 32px 0;
+}
+
+#buttons {
+    display: flex;
+    justify-content: space-evenly;
+
+    margin-bottom: 32px;
+    
+}
+
+button {
+    background: none;
+    color: #ff5E84;
+
+    border: none;
+
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 18px;
+    letter-spacing: 0.2px;
+
+    cursor: pointer;
+
+    outline: none;
+}
+
+/*Quando passar o mouse em cima do button*/
+button:hover {
+    text-decoration: underline;
+}
+
+/*Acessando as classes: pode repetir quantas vezes precisar*/
+button.fat {
+    color: white;
+    background: #ff5E84;
+
+    width: 150px;
+    height: 40px;
+    /*borda de arredondamento*/
+    /*Exemplo: border-radius: 60px 0;*/
+    border-radius: 6px;
+
+    /*Colocar sombra*/
+    box-shadow: 0px 8px 16px rgba(255, 0, 92, 0.16);
+
+}
+
+button.fat:hover {
+    text-decoration: none;
+}
+
+footer {
+    text-align: center;
+
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 0.2px;
+
+    color: #777;
+}
+
+footer a {
+    opacity: 0.8;
+}
+
+.idea {
+    display: flex;
+    background-color: #FFF;
+    box-shadow: 0 4px 16px -8px rgba(1, 1, 1, 0.1);
+    border-radius: 8px;
+
+    /*Preenchimento*/
+    padding: 32px;
+    /*Fazer separações entre os idea*/
+    margin-bottom: 32px;
+}
+
+.idea img {
+    width: 60px;
+    height: 60px;
+
+    margin-right: 32px;
+}
+
+.idea h3 {
+    margin: 0;
+}
+
+.idea p {
+    margin: 8px 0;
+    color: #777;
+}
+
+.idea .description {
+    margin: 16px 0;
+}
+
+/*Modal*/
+#modal {
+    background: #ff5E84;
+
+    position: absolute;
+    top: 0;
+    
+    /*vw / vh : toda area visivel do dispositivo*/
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+
+    color: white;
+}
+
+#modal .content {
+    margin-top: 128px;
+}
+
+#modal .content h1 {
+    text-align: center;
+        
+    /*Colocando tudo para letras maiusculas*/
+    text-transform: uppercase;
+}
+
+#modal form {
+    width: 80%;
+    max-width: 800px;
+
+    margin: 0 auto;
+
+    display: grid;
+    /*Fazendo com que formulário contenha duas colunas*/
+    grid-template-columns: 1fr 1fr;
+
+    /*Separação entra linhas e colunas*/
+    gap: 20px;
+}
+
+/*Pegando os filhos e expandindo até a segunda coluna*/
+.content form div:nth-child(3), 
+.content form div:nth-child(4),
+.content form div:nth-child(5) {
+    grid-column: span 2;/*Expandir ate a segunda coluna*/
+}
+
+form input, form textarea {
+    width: 100%;
+
+    padding: 12px;
+
+    box-sizing: border-box;
+
+    border-radius: 6px;
+    border: 1px solid rgba(141, 25, 52, 0.5);
+
+    outline: none;
+
+    font-size: 16px;
+}
+
+form label {
+    font-weight: 600;
+    line-height: 32px;
+    letter-spacing: 0.8px;
+}
+
+form a {
+    width: 150px;
+    height: 40px;
+    background-color: #ffffff22;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    border-radius: 6px;
+
+    align-self: end;
+
+    transition: 400ms;
+}
+
+form a:hover {
+    background: #fff;
+    color: #ff5E84;
+
+    text-decoration: none;
+}
+
+form button {
+    background: white;
+
+    width: 150px;
+    height: 40px;
+    
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    margin-top: 32px;
+    /*Jogando para coluna 2*/
+    grid-column: 2;
+    /*Jogando para o canto direito*/
+    justify-self: end;
+
+    transition: 400ms;
+}
+
+form button:hover {
+    background-color: #0984e3;
+    color: white;
+
+    text-decoration: none;
+}
+
+#modal.hide {
+    opacity: 0;
+    visibility: hidden;
+}

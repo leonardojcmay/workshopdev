@@ -33,3 +33,13 @@ Site para criação de layouts:
 
 ---
 
+# Dia 2
+
+Organizando conteúdos: BOX
+
+Site dos icones utilizados:
+<br>https://www.flaticon.com/br/packs/stay-at-home-13
+
+Fonte da letra utilizada: Montserrat
+<br>https://fonts.google.com/specimen/Montserrat
+
