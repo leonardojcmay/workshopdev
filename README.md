@@ -43,3 +43,9 @@ Site dos icones utilizados:
 Fonte da letra utilizada: Montserrat
 <br>https://fonts.google.com/specimen/Montserrat
 
+---
+
+# Dia 3
+
+Criação da página ideias.html
+

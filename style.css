@@ -2,16 +2,19 @@
 /*BOX/caixa: dentro das box contém box, textos, imagens*/
 /*
 BOX
-    largura
-    conteudo da caixa
+    Largura
+    Conteudo da caixa
 
     Espaçamentos
     Bordas
     Preenchimento
 
     Posicionamento
+
+    Cores, fontes
 */
 
+/*GLOBAL*/
 body {
     /*propriedade: valor;*/
     
@@ -31,6 +34,10 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
+body.hideScroll {
+    overflow: hidden;
+}
+
 a {
     color: #ff5E84;
     font-weight: bold;
@@ -46,6 +53,37 @@ p, .description {
     line-height: 24px;
     letter-spacing: 0.1px;
 }
+
+/*Acessando as classes: pode repetir quantas vezes precisar*/
+.button {
+    color: white;
+    background: #ff5E84;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    width: 150px;
+    height: 40px;
+    /*borda de arredondamento*/
+    /*Exemplo: border-radius: 60px 0;*/
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+
+    /*Colocar sombra*/
+    box-shadow: 0px 8px 16px rgba(255, 0, 92, 0.16);
+
+}
+
+.button:hover {
+    background-color: #0984e3;
+    text-decoration: none;
+}
+
+/*PADRÃO*/
 
 /*Ajustando caixas da página*/
 #container {
@@ -63,7 +101,7 @@ p, .description {
 
 #intro {
     width: 300px;
-    margin-right: 20px;
+    margin-right: 64px;
 }
 
 main {
@@ -98,26 +136,6 @@ button {
 /*Quando passar o mouse em cima do button*/
 button:hover {
     text-decoration: underline;
-}
-
-/*Acessando as classes: pode repetir quantas vezes precisar*/
-button.fat {
-    color: white;
-    background: #ff5E84;
-
-    width: 150px;
-    height: 40px;
-    /*borda de arredondamento*/
-    /*Exemplo: border-radius: 60px 0;*/
-    border-radius: 6px;
-
-    /*Colocar sombra*/
-    box-shadow: 0px 8px 16px rgba(255, 0, 92, 0.16);
-
-}
-
-button.fat:hover {
-    text-decoration: none;
 }
 
 footer {
@@ -173,10 +191,13 @@ footer a {
 
     position: absolute;
     top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
     
     /*vw / vh : toda area visivel do dispositivo*/
-    width: 100vw;
-    height: 100vh;
+    /*width: 100vw;
+    height: 100vh;*/
 
     display: flex;
     justify-content: center;
@@ -184,8 +205,12 @@ footer a {
     color: white;
 }
 
+#modal.addScroll{
+    overflow: auto;
+}
+
 #modal .content {
-    margin-top: 128px;
+    margin-top: 2%;
 }
 
 #modal .content h1 {
@@ -199,7 +224,7 @@ footer a {
     width: 80%;
     max-width: 800px;
 
-    margin: 0 auto;
+    margin: 0 auto 10%;
 
     display: grid;
     /*Fazendo com que formulário contenha duas colunas*/
@@ -293,4 +318,68 @@ form button:hover {
 #modal.hide {
     opacity: 0;
     visibility: hidden;
+}
+
+/*ideias.html*/
+#page-ideias #container {
+    display: block;
+}
+#page-ideias header {
+    display: flex;
+    justify-content: space-between;
+}
+
+#page-ideias nav {
+    display: flex;
+    align-items: center;
+}
+
+#page-ideias nav li {
+    list-style-type: none;
+
+    margin-right: 16px;
+}
+
+/*Alterando ultimo botão do menu*/
+#page-ideias nav li:last-child {
+    margin: 0;
+
+}
+
+#page-ideias nav li a.button {
+    color: white;
+}
+
+#page-ideias nav li a {
+    color: #25282B;
+}
+
+section#title {
+    text-align: center;
+}
+
+section#title p{
+    opacity: 0.7;
+    margin: 0;
+}
+
+section#title h1{
+    margin: 0;
+
+    font-size: 28px;
+}
+
+section#ideias {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+}
+
+section#ideias .idea{
+    margin: 0;
+}
+
+section#ideias, section#title, footer {
+    margin-top: 64px;
 }

@@ -1,82 +1,42 @@
-<!--Estrutura para o HTML5-->
 <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <!--Responsividade: não irá ser feito neste projeto-->
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">-->
+    <title>Ideias - Casa Criativa</title>
+    
+    <!--Link da fonte da letra-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700,900&display=swap" rel="stylesheet">
 
-<!--Tag HTML-->
-<html>
-
-    <!--Cabeçalho: responsável por receber configurações da página-->
-    <head>
-        <!--Serve para ajustar a descrição das palavra que contém acentos-->
-        <meta charset="UTF-8">
+    <!--Linkando com o arquivo style.css-->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="page-ideias">
+    
+    <div id="container">
+        <header>
+                <a href="index.html">
+                    <!--Tag para exportar imagens-->
+                    <img src="logo.png" alt="Imagem da Logomarca">
+                </a>   
+                <!--Tag utilizada para menus-->
+                <nav>
+                    <!--Itens de uma lista-->
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a class="button" href="#" onclick="onOff()">Nova Ideia</a></li>
+                </nav>
+        </header>
         
-        <!--Titulo da página-->
-        <title>Casa Criativa</title>
-
-        <!--Link da fonte da letra-->
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700,900&display=swap" rel="stylesheet">
-
-        <!--Linkando com o arquivo style.css-->
-        <link rel="stylesheet" href="style.css">
-
-    </head>
-
-    <!--Corpo da página, onde coloca-se os textos, informações, imagens-->
-    <body>
-
-        <!--Tag tipo de caixa que auxilia-->
-        <div id="container">
-
-            <!--bloco da esquerda-->
-            <section id="intro">
-                
-                <!--Cabeçalho-->
-                <header>
-                    <a href="index.html">
-                        <!--Tag para exportar imagens-->
-                        <img src="logo.png" alt="Imagem da Logomarca">
-                    </a>
-                </header>
-                
-                <!--Conteudo principal da pagina-->
-                <main>
-                    <!--Tag de paragrago-->
-                    <p>
-                        Ficar em casa em períodos longos, não deve ser nada fácil.
-                    </p>
+        <section id="title">
+            <p>em exibição</p>
+            <h1>Ideias</h1>
+        </section>
     
-                    <p>
-                        <!--strong: serve para colocar as palavras em negrito-->
-                        Iremos catalogar ideias, <strong>brincadeiras, jogos, filmes, 
-                        livros, cursos, dicas</strong> e tudo que for necessário para tornar 
-                        esse momento mais interessante.
-                    </p>
+        <main>
+            <section id="ideias">
     
-                    <p>
-                        Comece clicando em ver ideias para ver as 
-                        ideias cadastradas e contribua adicioando a sua ideia.
-                    </p>
-                </main>
-
-                <!--Sessão de botões-->
-                <section id="buttons">
-                    <!--Adicionando botões-->
-                    <button onclick="onOff()"> + Adicionar Ideia </button>
-                    <a href="ideias.html" class="button"> Ver Ideias </a>
-                </section>                
-                
-                <!--Rodapé-->
-                <footer id="footer">
-                    Acesse
-                    <a href="http://rocketseat.com.br" target="_blank">
-                        Rocketseat
-                    </a>
-                </footer>
-
-            </section>
-
-            <!--bloco da direita-->
-            <section id="last-ideias">
-
                 <div class="idea">
                     <!--Utilizando icon da web-->
                     <img 
@@ -92,11 +52,11 @@
                         <div class="description">
                             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis, id dolorum inventore dolore laudantium autem. Excepturi, velit commodi voluptatem at totam soluta blanditiis vitae placeat iste ipsum, magnam animi quasi?
                         </div>
-
+    
                         <a href="#">Ir para a Ideia</a>
                     </div>
                 </div>
-
+    
                 <div class="idea">
                     <!--Utilizando icon da web-->
                     <img 
@@ -112,11 +72,11 @@
                         <div class="description">
                             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis, id dolorum inventore dolore laudantium autem. Excepturi, velit commodi voluptatem at totam soluta blanditiis vitae placeat iste ipsum, magnam animi quasi?
                         </div>
-
+    
                         <a href="#">Ir para a Ideia</a>
                     </div>
                 </div>
-
+    
                 <div class="idea">
                     <!--Utilizando icon da web-->
                     <img 
@@ -132,17 +92,45 @@
                         <div class="description">
                             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis, id dolorum inventore dolore laudantium autem. Excepturi, velit commodi voluptatem at totam soluta blanditiis vitae placeat iste ipsum, magnam animi quasi?
                         </div>
-
+    
                         <a href="#">Ir para a Ideia</a>
                     </div>
                 </div>
 
+                <div class="idea">
+                    <!--Utilizando icon da web-->
+                    <img 
+                        src="https://image.flaticon.com/icons/svg/2729/2729032.svg" 
+                        alt="Imagem de Karaokê">
+                    
+                    <div class="content">
+                        <!--Nome do curso-->
+                        <h3>Karaokê</h3>
+                        <!--Titulo-->
+                        <p>Diversão em Família</p>
+                        <!--Descrição-->
+                        <div class="description">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis, id dolorum inventore dolore laudantium autem. Excepturi, velit commodi voluptatem at totam soluta blanditiis vitae placeat iste ipsum, magnam animi quasi?
+                        </div>
+    
+                        <a href="#">Ir para a Ideia</a>
+                    </div>
+                </div>
+    
             </section>
+        </main>
+    
+        <!--Rodapé-->
+        <footer id="footer">
+            Acesse
+            <a href="http://rocketseat.com.br" target="_blank">
+                Rocketseat
+            </a>
+        </footer>
+    </div>
 
-        </div>
-
-        <!--Modal-->
-        <div id="modal" class="hide">
+    <!--Modal-->
+    <div id="modal" class="hide">
             <div class="content">
                 <h1>Nova Ideia</h1>
 
@@ -186,6 +174,6 @@
         
         <!--Linkando com o arquivo de scripts.js-->
         <script src="scripts.js"></script>
-    </body>
 
+</body>
 </html>
