@@ -12,7 +12,7 @@
 
 *URL(Uniform Resource Locator):* é uma localização universal para alguma coisa.
 
-**Tecnologias:**
+**Tecnologias utilizadas:**
 <br>*HTML*
 <br>*CSS*
 <br>*JavaScript*
@@ -48,4 +48,51 @@ Fonte da letra utilizada: Montserrat
 # Dia 3
 
 Criação da página ideias.html
+
+---
+
+# Dia 4
+
+## **Back-end:**
+
+**Responsabilidades:**
+<br>Receber pedidos do usuario
+<br>Devolver resposta para o usuario
+<br>Regras de negócio
+<br>Dados
+
+**Tecnologias utilizadas:**
+<br>*Node.js*
+<br>*Banco de dados*
+
+**Iniciando back-end:**
+<br>Criado arquivo server.js
+
+Rodar comandos abaixo:
+```
+npm init -y
+
+npm i express
+
+npm install nodemon -D
+```
+
+
+Arquivo package.json:
+```
+"scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+```
+
+Iniciando servidor:
+```
+npm start
+```
+
+Instalar nunjucks: permite que use variaveis no HTML:
+```
+npm i nunjucks
+```
 

@@ -1,0 +1,22 @@
+<!--Estrutura de repetição-->
+{% for idea in ideias %}
+<div class="idea">
+    <!--Utilizando icon da web-->
+    <img 
+        src="{{idea.img}}" 
+        alt="Imagem de {{idea.title}}">
+    
+    <div class="content">
+        <!--Titulo-->
+        <h3>{{idea.title}}</h3>
+        <!--Categoria-->
+        <p>{{idea.category}}</p>
+        <!--Descrição-->
+        <div class="description">
+            {{idea.description}}
+        </div>
+
+        <a href="{{idea.url}}" target="_blank">Ir para a Ideia</a>
+    </div>
+</div>
+{% endfor %}

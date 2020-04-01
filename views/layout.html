@@ -1,0 +1,41 @@
+<!--Estrutura para o HTML5-->
+<!DOCTYPE html>
+
+<!--Tag HTML-->
+<html lang="pt-br">
+
+    <!--Cabeçalho: responsável por receber configurações da página-->
+    <head>
+        <!--Serve para ajustar a descrição das palavra que contém acentos-->
+        <meta charset="UTF-8">
+        
+        <!--Titulo da página-->
+        {% block title %}
+            <title>Casa Criativa</title>
+        {% endblock title %}
+        
+        <!--Incluindo head.html nesta parte da pagina-->
+        {% include "head.html" %}
+
+    </head>
+
+    <!--Corpo da página, onde coloca-se os textos, informações, imagens-->
+    <body id="{{ bodyId }}">
+
+        <!--Tag tipo de caixa que auxilia-->
+        <div id="container">
+
+            {% block content %} 
+            {% endblock %}
+
+        </div>
+
+        <!--modal-->
+        <!--Incluindo modal.html nesta parte da pagina-->
+        {% include "modal.html" %}
+        
+        <!--Linkando com o arquivo de scripts.js-->
+        <script src="/scripts.js"></script>
+    </body>
+
+</html>
