@@ -2,60 +2,14 @@
 const express = require('express');
 const server = express();
 
-//Lista de ideias
-const ideias = [
-    {
-        img: "https://image.flaticon.com/icons/svg/2729/2729007.svg",
-        title: "Cursos de Programação",
-        category: "Estudo",
-        description: "Lorem ipsum dolor sit amet consectetur, ad",
-        url: "https://rocketseat.com.br"
-    },
-
-    {
-        img: "https://image.flaticon.com/icons/svg/2729/2729005.svg",
-        title: "Exercícios",
-        category: "Saúde",
-        description: "Lorem ipsum dolor sit amet consectetur, ad",
-        url: "https://rocketseat.com.br"
-    },
-
-    {
-        img: "https://image.flaticon.com/icons/svg/2729/2729027.svg",
-        title: "Meditação",
-        category: "Mentalidade",
-        description: "Lorem ipsum dolor sit amet consectetur, ad",
-        url: "https://rocketseat.com.br"
-    },
-
-    {
-        img: "https://image.flaticon.com/icons/svg/2729/2729032.svg",
-        title: "Karaokê",
-        category: "Diversão em Família",
-        description: "Lorem ipsum dolor sit amet consectetur, ad",
-        url: "https://rocketseat.com.br"
-    },
-
-    {
-        img: "https://image.flaticon.com/icons/svg/2729/2729005.svg",
-        title: "Exercícios",
-        category: "Saúde",
-        description: "Lorem ipsum dolor sit amet consectetur, ad",
-        url: "https://rocketseat.com.br"
-    },
-
-    {
-        img: "https://image.flaticon.com/icons/svg/2729/2729027.svg",
-        title: "Meditação",
-        category: "Mentalidade",
-        description: "Lorem ipsum dolor sit amet consectetur, ad",
-        url: "https://rocketseat.com.br"
-    },
-]
-
+//Conectando com o banco de dados
+const db = require("./db");
 
 //Configurando arquivos estáticos (css, scripts, imagens)
 server.use(express.static("public"));
+
+//Habilitando uso do req.body
+server.use(express.urlencoded({ extended: true }));
 
 //Configurando nunjucks
 const nunjucks = require("nunjucks");
@@ -67,27 +21,81 @@ nunjucks.configure("views", {
 //Criando rotas
 server.get("/", function(req, res) {
 
-    //Listagem das ideias na pagina index.html
-    //Quer que va mostrando na tela a partir da ultima postagem
-    const reversedIdeias = [...ideias].reverse();
-   
-    let lastIdeias = []
-    for (let idea of reversedIdeias) {
-        //Se tiver 2 ideias dentro, nao colocar mais
-        if(lastIdeias.length < 2) {
-            //push: adiciona na lista lastIdeias
-            lastIdeias.push(idea)
+    //Consultar dados na tabela
+    db.all(`SELECT * FROM ideias`, function(err, rows) {
+        if (err) {
+            console.log(err);
+            return res.end("Erro no banco de dados!");
+        };
+    
+        //Listagem das ideias na pagina index.html
+        //Quer que va mostrando na tela a partir da ultima postagem
+        const reversedIdeias = [...rows].reverse();
+    
+        let lastIdeias = []
+        for (let idea of reversedIdeias) {
+            //Se tiver 2 ideias dentro, nao colocar mais
+            if(lastIdeias.length < 2) {
+                //push: adiciona na lista lastIdeias
+                lastIdeias.push(idea)
+            }
         }
-    }
 
-    return res.render("index.html", { ideias: lastIdeias });
+        return res.render("index.html", { ideias: lastIdeias });
+    })
+  
 });
 
 server.get("/ideias", function(req, res) {
 
-    const reversedIdeias = [...ideias].reverse();
+    //Consultar dados na tabela
+    db.all(`SELECT * FROM ideias`, function(err, rows) {
+    
+        if (err) {
+            console.log(err);
+            return res.end("Erro no banco de dados!");
+        };
 
-    return res.render("ideias.html", { ideias: reversedIdeias });
+        const reversedIdeias = [...rows].reverse();
+
+        return res.render("ideias.html", { ideias: reversedIdeias });
+    
+    })
+    
+});
+
+//Criando nova ideia
+server.post("/", function(req, res) {
+    //Inserir dado na tabela
+    const query = `
+    INSERT INTO ideias(
+        image,
+        title,
+        category,
+        description,
+        link
+    ) VALUES (?,?,?,?,?);
+    `
+    
+    const values = [
+        req.body.image,
+        req.body.title,
+        req.body.category,
+        req.body.description,
+        req.body.link,
+    ]
+
+    db.run(query, values, function(err) {
+        if (err) {
+            console.log(err);
+            return res.end("Erro no banco de dados!");
+        };
+
+        //depois de ter cadastrado redirecionar para pagina de /ideias
+        return res.redirect("/ideias");
+
+    });
+
 });
 
 //Iniciou servidor na porta 3000

@@ -96,3 +96,31 @@ Instalar nunjucks: permite que use variaveis no HTML:
 npm i nunjucks
 ```
 
+---
+
+# Dia 5
+
+## **Banco de Dados:**
+
+Dados não podem ficar na aplicação
+<br>Segurança
+<br>Responsabilidades
+
+**SQL(Structured Query Language):**
+<br>Linguagem para consultar, criar, atualizar, listar, deletar...
+<br>Tabelas/Entidades/Relações
+
+**Tecnologia utilizada:**
+
+*SQLite:* é open-source, não precisa de um mundo de configurações, é estruturado para ser um banco de dados relacioal que reside na própria aplicação.
+
+Instalando:
+```
+npm i sqlite3
+```
+
+Comando que executa somente o banco de dados:
+```
+node db.js
+```
+
